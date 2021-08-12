@@ -1,0 +1,13 @@
+Package: debelectrotest-dbgsym
+Package-Type: ddeb
+Source: debelectrotest
+Version: 0.0-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Zacharias Wesén <z.wesen@protonmail.com>
+Installed-Size: 21
+Depends: debelectrotest (= 0.0-1)
+Section: debug
+Priority: optional
+Description: debug symbols for debelectrotest
+Build-Ids: c75faefd8ae53e4cb2a4d34c9989c3799e6e031d

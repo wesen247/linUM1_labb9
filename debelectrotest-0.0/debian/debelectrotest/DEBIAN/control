@@ -1,0 +1,16 @@
+Package: debelectrotest
+Version: 0.0-1
+Architecture: amd64
+Maintainer: Zacharias Wesén <z.wesen@protonmail.com>
+Installed-Size: 29
+Depends: libc6 (>= 2.7)
+Section: devel
+Priority: optional
+Multi-Arch: foreign
+Homepage: https://github.com/wesen247/linUM1_labb9
+Description: my first debian package
+ This Debian package was created for assignment 9,
+ the final part of 'Linux as a development environment 1'.
+ .
+ The generated Debian package uses the dh command offered by the
+ debhelper package and the dpkg source format `3.0 (quilt)'.

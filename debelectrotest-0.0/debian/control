@@ -1,0 +1,18 @@
+Source: debelectrotest
+Section: devel
+Priority: optional
+Maintainer: Zacharias Wesén <z.wesen@protonmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.5.0
+Homepage: https://github.com/wesen247/linUM1_labb9
+
+Package: debelectrotest
+Architecture: any
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: my first debian package
+ This Debian package was created for assignment 9,
+ the final part of 'Linux as a development environment 1'.
+ .
+ The generated Debian package uses the dh command offered by the
+ debhelper package and the dpkg source format `3.0 (quilt)'.

@@ -1,0 +1,40 @@
+Format: 1.8
+Date: Mon, 09 Aug 2021 11:53:07 +0200
+Source: debelectrotest
+Binary: debelectrotest
+Architecture: source amd64
+Version: 0.0-1
+Distribution: UNRELEASED
+Urgency: low
+Maintainer: Zacharias Wesén <z.wesen@protonmail.com>
+Changed-By: Zacharias Wesén <z.wesen@protonmail.com>
+Description:
+ debelectrotest - my first debian package
+Closes: 63000
+Changes:
+ debelectrotest (0.0-1) UNRELEASED; urgency=low
+ .
+   * Initial release. Closes: #63000
+   * This is my first Debian package.
+   * Code clean up and adjusted Makefile.
+Checksums-Sha1:
+ a42356d938cbb6a2dfb3d1c0afd2ace871307824 879 debelectrotest_0.0-1.dsc
+ 1d25bc9c4c0e0214a1055384a691e576690422d4 2792 debelectrotest_0.0.orig.tar.gz
+ bc5b21a23e5c027fce6c166773b8bd0b8de5f780 1916 debelectrotest_0.0-1.debian.tar.xz
+ 2894bf2af17f343caad7733dfb8d05f0e8f94c1b 6548 debelectrotest-dbgsym_0.0-1_amd64.ddeb
+ 2fcf2141779a1208f9af1ab60cbed49b9ce20239 6724 debelectrotest_0.0-1_amd64.buildinfo
+ f5639763ff11aafea9760ce3325561d1f832b438 5864 debelectrotest_0.0-1_amd64.deb
+Checksums-Sha256:
+ 9460fdd3419364f5cfee2fadf21270aaf54d438bf714413652824249113e38d8 879 debelectrotest_0.0-1.dsc
+ 8ad1b382d744fa0854827d7e6b1aa0d2e3ba5f6589cada08b05788fdf867201d 2792 debelectrotest_0.0.orig.tar.gz
+ e336737436bb4bc0e05ee3c9bf57a9df681d2e73e6f164757ad95a0c0b833e24 1916 debelectrotest_0.0-1.debian.tar.xz
+ 3e15f31d003b637c3cee2e25989402acb344f8a26b5b6c753209984553ac5c0d 6548 debelectrotest-dbgsym_0.0-1_amd64.ddeb
+ dd2e6e3faed8779bbe17d712c38839e07b3693ca53e78616d13ee5473099c7b8 6724 debelectrotest_0.0-1_amd64.buildinfo
+ 470afef8a0d052af2a69172487a749be82fe50ce3122521f0accf8d213498e1e 5864 debelectrotest_0.0-1_amd64.deb
+Files:
+ 918467fbc7f9078d03d08f9e25486181 879 devel optional debelectrotest_0.0-1.dsc
+ 91e884d0bb1e79c59a01f3c6c8349731 2792 devel optional debelectrotest_0.0.orig.tar.gz
+ dba1edfcadc0a5b852a0e22bc83846de 1916 devel optional debelectrotest_0.0-1.debian.tar.xz
+ 388b78706b6399bf33b187037be755cd 6548 debug optional debelectrotest-dbgsym_0.0-1_amd64.ddeb
+ 88eea8b2b7de606c66d41611fdd82f44 6724 devel optional debelectrotest_0.0-1_amd64.buildinfo
+ d6b69fdb5153cde9dca54f88b3e3510b 5864 devel optional debelectrotest_0.0-1_amd64.deb

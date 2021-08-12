@@ -1,0 +1,7 @@
+debelectrotest (0.0-1) UNRELEASED; urgency=low
+
+  * Initial release. Closes: #63000
+  * This is my first Debian package.
+  * Code clean up and adjusted Makefile.
+
+ -- Zacharias Wesén <z.wesen@protonmail.com>  Mon, 09 Aug 2021 11:53:07 +0200

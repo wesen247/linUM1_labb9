@@ -1,0 +1,147 @@
+ dpkg-buildpackage -us -uc -ui
+dpkg-buildpackage: info: source package debelectrotest
+dpkg-buildpackage: info: source version 0.0-1
+dpkg-buildpackage: info: source distribution UNRELEASED
+dpkg-buildpackage: info: source changed by Zacharias Wesén <z.wesen@protonmail.com>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean
+   dh_auto_clean
+	install -d /home/user/Desktop/uppg9/debelectrotest-0.0/debian/.debhelper/generated/_source/home
+	make -j1 distclean
+make[1]: Entering directory '/home/user/Desktop/uppg9/debelectrotest-0.0'
+rm -f src/electro
+make[1]: Leaving directory '/home/user/Desktop/uppg9/debelectrotest-0.0'
+   dh_clean
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f -- debian/debelectrotest.substvars debian/files
+	rm -fr -- debian/debelectrotest/ debian/tmp/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+ dpkg-source -b .
+dpkg-source: info: using source format '3.0 (quilt)'
+dpkg-source: info: building debelectrotest using existing ./debelectrotest_0.0.orig.tar.gz
+dpkg-source: info: building debelectrotest in debelectrotest_0.0-1.debian.tar.xz
+dpkg-source: info: building debelectrotest in debelectrotest_0.0-1.dsc
+ debian/rules build
+dh build
+   dh_update_autotools_config
+   dh_autoreconf
+   dh_auto_configure
+	install -d /home/user/Desktop/uppg9/debelectrotest-0.0/debian/.debhelper/generated/_source/home
+   dh_auto_build
+	make -j1 "INSTALL=install --strip-program=true"
+make[1]: Entering directory '/home/user/Desktop/uppg9/debelectrotest-0.0'
+# CFLAGS=-g -O2 
+# -fdebug-prefix-map=/home/user/Desktop/uppg9/debelectrotest-0.0=. 
+# -fstack-protector-strong -Wformat -Werror=format-security -Wall 
+# -pedantic
+cc -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/home/user/Desktop/uppg9/debelectrotest-0.0=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic  -o src/electro src/electrotest.c src/electrotest.h
+make[1]: Leaving directory '/home/user/Desktop/uppg9/debelectrotest-0.0'
+   dh_auto_test
+	rm -fr -- /tmp/dh-xdg-rundir-zpagSr4y
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary
+   dh_testroot
+   dh_prep
+	rm -f -- debian/debelectrotest.substvars
+	rm -fr -- debian/.debhelper/generated/debelectrotest/ debian/debelectrotest/ debian/tmp/
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/home/user/Desktop/uppg9/debelectrotest-0.0'
+dh_auto_install -- prefix=/usr
+	install -d /home/user/Desktop/uppg9/debelectrotest-0.0/debian/debelectrotest
+	make -j1 install DESTDIR=/home/user/Desktop/uppg9/debelectrotest-0.0/debian/debelectrotest AM_UPDATE_INFO_DIR=no "INSTALL=install --strip-program=true" prefix=/usr
+make[2]: Entering directory '/home/user/Desktop/uppg9/debelectrotest-0.0'
+install -D src/electro \
+	/home/user/Desktop/uppg9/debelectrotest-0.0/debian/debelectrotest/usr/bin/electro
+make[2]: Leaving directory '/home/user/Desktop/uppg9/debelectrotest-0.0'
+make[1]: Leaving directory '/home/user/Desktop/uppg9/debelectrotest-0.0'
+   dh_installdocs
+	install -d debian/debelectrotest/usr/share/doc/debelectrotest
+	install -d debian/.debhelper/generated/debelectrotest
+	install -p -m0644 debian/README.Debian debian/debelectrotest/usr/share/doc/debelectrotest/README.Debian
+	install -p -m0644 debian/copyright debian/debelectrotest/usr/share/doc/debelectrotest/copyright
+   dh_installchangelogs
+	install -p -m0644 debian/changelog debian/debelectrotest/usr/share/doc/debelectrotest/changelog.Debian
+   dh_installman
+	install -d debian/debelectrotest/usr/share/man/man1/
+	install -p -m0644 ./doc/man/electro.1 debian/debelectrotest/usr/share/man/man1/electro.1
+	man-recode --to-code UTF-8 --suffix .dh-new debian/debelectrotest/usr/share/man/man1/electro.1
+	mv debian/debelectrotest/usr/share/man/man1/electro.1.dh-new debian/debelectrotest/usr/share/man/man1/electro.1
+	chmod 0644 -- debian/debelectrotest/usr/share/man/man1/electro.1
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+	cd debian/debelectrotest
+	chmod a-x usr/share/doc/debelectrotest/changelog.Debian usr/share/man/man1/electro.1
+	gzip -9nf usr/share/doc/debelectrotest/changelog.Debian usr/share/man/man1/electro.1
+	cd '/home/user/Desktop/uppg9/debelectrotest-0.0'
+   dh_fixperms
+	find debian/debelectrotest -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/debelectrotest ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/debelectrotest/usr/share/doc -type f -a -true -a ! -regex 'debian/debelectrotest/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debelectrotest/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/debelectrotest/usr/share/man -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debelectrotest -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/debelectrotest/usr/bin -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
+   dh_missing
+   dh_dwz -a
+	dwz -- debian/debelectrotest/usr/bin/electro
+   dh_strip -a
+	install -d debian/.debhelper/debelectrotest/dbgsym-root/usr/lib/debug/.build-id/c7
+	objcopy --only-keep-debug --compress-debug-sections debian/debelectrotest/usr/bin/electro debian/.debhelper/debelectrotest/dbgsym-root/usr/lib/debug/.build-id/c7/5faefd8ae53e4cb2a4d34c9989c3799e6e031d.debug
+	chmod 0644 -- debian/.debhelper/debelectrotest/dbgsym-root/usr/lib/debug/.build-id/c7/5faefd8ae53e4cb2a4d34c9989c3799e6e031d.debug
+	chown 0:0 -- debian/.debhelper/debelectrotest/dbgsym-root/usr/lib/debug/.build-id/c7/5faefd8ae53e4cb2a4d34c9989c3799e6e031d.debug
+	strip --remove-section=.comment --remove-section=.note debian/debelectrotest/usr/bin/electro
+	objcopy --add-gnu-debuglink debian/.debhelper/debelectrotest/dbgsym-root/usr/lib/debug/.build-id/c7/5faefd8ae53e4cb2a4d34c9989c3799e6e031d.debug debian/debelectrotest/usr/bin/electro
+	install -d debian/.debhelper/debelectrotest/dbgsym-root/usr/share/doc
+	ln -s debelectrotest debian/.debhelper/debelectrotest/dbgsym-root/usr/share/doc/debelectrotest-dbgsym
+   dh_makeshlibs -a
+	rm -f debian/debelectrotest/DEBIAN/shlibs
+   dh_shlibdeps -a
+	install -d debian/debelectrotest/DEBIAN
+	dpkg-shlibdeps -Tdebian/debelectrotest.substvars debian/debelectrotest/usr/bin/electro
+   dh_installdeb
+   dh_gencontrol
+	echo misc:Depends= >> debian/debelectrotest.substvars
+	echo misc:Pre-Depends= >> debian/debelectrotest.substvars
+	install -d debian/.debhelper/debelectrotest/dbgsym-root/DEBIAN
+	dpkg-gencontrol -pdebelectrotest -ldebian/changelog -Tdebian/debelectrotest.substvars -Pdebian/.debhelper/debelectrotest/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -UBuilt-Using -DAuto-Built-Package=debug-symbols -DPackage=debelectrotest-dbgsym "-DDepends=debelectrotest (= \${binary:Version})" "-DDescription=debug symbols for debelectrotest" -DBuild-Ids=c75faefd8ae53e4cb2a4d34c9989c3799e6e031d -DSection=debug -DPackage-Type=ddeb -UMulti-Arch -UReplaces -UBreaks
+	chmod 0644 -- debian/.debhelper/debelectrotest/dbgsym-root/DEBIAN/control
+	chown 0:0 -- debian/.debhelper/debelectrotest/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -pdebelectrotest -ldebian/changelog -Tdebian/debelectrotest.substvars -Pdebian/debelectrotest
+	chmod 0644 -- debian/debelectrotest/DEBIAN/control
+	chown 0:0 -- debian/debelectrotest/DEBIAN/control
+   dh_md5sums
+	cd debian/debelectrotest >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/debelectrotest/DEBIAN/md5sums
+	chown 0:0 -- debian/debelectrotest/DEBIAN/md5sums
+	cd debian/.debhelper/debelectrotest/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/debelectrotest/dbgsym-root/DEBIAN/md5sums
+	chown 0:0 -- debian/.debhelper/debelectrotest/dbgsym-root/DEBIAN/md5sums
+   dh_builddeb
+	dpkg-deb --build debian/debelectrotest ..
+dpkg-deb: building package 'debelectrotest' in '../debelectrotest_0.0-1_amd64.deb'.
+	install -d debian/.debhelper/scratch-space/build-debelectrotest
+	dpkg-deb --build debian/.debhelper/debelectrotest/dbgsym-root debian/.debhelper/scratch-space/build-debelectrotest
+dpkg-deb: building package 'debelectrotest-dbgsym' in 'debian/.debhelper/scratch-space/build-debelectrotest/debelectrotest-dbgsym_0.0-1_amd64.deb'.
+	Renaming debelectrotest-dbgsym_0.0-1_amd64.deb to debelectrotest-dbgsym_0.0-1_amd64.ddeb
+	mv debian/.debhelper/scratch-space/build-debelectrotest/debelectrotest-dbgsym_0.0-1_amd64.deb ../debelectrotest-dbgsym_0.0-1_amd64.ddeb
+ dpkg-genbuildinfo
+ dpkg-genchanges  >../debelectrotest_0.0-1_amd64.changes
+dpkg-genchanges: info: including full source code in upload
+ dpkg-source --after-build .
+dpkg-buildpackage: info: full upload (original source is included)
+Now running lintian debelectrotest_0.0-1_amd64.changes ...
+W: debelectrotest: readme-debian-contains-debmake-template
+Finished running lintian.
